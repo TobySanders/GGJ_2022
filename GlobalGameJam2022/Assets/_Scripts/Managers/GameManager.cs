@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         Instance = this;
+        state = GameState.ObjectPlacementPhase;
     }
 
     void Start()
@@ -25,8 +26,10 @@ public class GameManager : MonoBehaviour
         switch (newState)
         {
             case GameState.ObjectPlacementPhase:
+                HandleObjectPlacement();
                 break;
             case GameState.MovementPhase:
+                HandleMovementPhase();
                 break;
             case GameState.Victory:
                 break;
@@ -37,6 +40,16 @@ public class GameManager : MonoBehaviour
         }
 
         OnGameStateChanged?.Invoke(newState);
+    }
+
+    private void HandleObjectPlacement()
+    {
+        Debug.Log("Entering ObjectPlacement phase");
+    }
+
+    private void HandleMovementPhase()
+    {
+        Debug.Log("Entering PlayerMovement phase");
     }
 }
 
