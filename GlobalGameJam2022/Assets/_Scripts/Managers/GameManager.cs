@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
+    public GameObject Player;
 
     public GameState state;
     public static event Action<GameState> OnGameStateChanged;
@@ -60,6 +61,7 @@ public class GameManager : MonoBehaviour
     private void HandleGameOver()
     {
         Debug.Log("Entering Game Over phase");
+        Player.GetComponent<TestBabyController>().enabled = false;
     }
     private void HandleRestart()
     {
