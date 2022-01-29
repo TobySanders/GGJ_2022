@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -34,6 +35,10 @@ public class GameManager : MonoBehaviour
             case GameState.Victory:
                 break;
             case GameState.GameOver:
+                HandleGameOver();
+                break;
+            case GameState.Restart:
+                HandleRestart();
                 break;
             default:
                 throw new ArgumentOutOfRangeException(nameof(newState), newState, null);
@@ -51,6 +56,15 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Entering PlayerMovement phase");
     }
+
+    private void HandleGameOver()
+    {
+        Debug.Log("Entering Game Over phase");
+    }
+    private void HandleRestart()
+    {
+        SceneManager.LoadScene("Henry Test");
+    }
 }
 
 public enum GameState
@@ -58,5 +72,6 @@ public enum GameState
     ObjectPlacementPhase,
     MovementPhase,
     Victory,
-    GameOver
+    GameOver,
+    Restart
 }
