@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class MenuManager : MonoBehaviour
 {
     public GameObject _objectPlacementPanel;
-    public GameObject _gameOverPanel;
+    public GameObject _gameOverPanel, _victoryPanel;
     public GameObject _angerBar;
 
     public static MenuManager Instance;
@@ -24,6 +24,7 @@ public class MenuManager : MonoBehaviour
     {
         _objectPlacementPanel.SetActive(state == GameState.ObjectPlacementPhase);
         _gameOverPanel.SetActive(state == GameState.GameOver);
+        _victoryPanel.SetActive(state == GameState.Victory);
     }
 
     public void UpdateResourceBar(string bar, float amount)

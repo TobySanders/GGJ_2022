@@ -9,8 +9,9 @@ public class TestBabyController : MonoBehaviour
 
     private void Update()
     {
-            var movement = Input.GetAxis("Horizontal");
+        var movement = Input.GetAxis("Horizontal");
+        var vMovement = Input.GetAxis("Vertical");
 
-            transform.position += new Vector3(movement, 0, 0) * Time.deltaTime * movementSpeed;
+        transform.position += new Vector3(movement, vMovement, 0) * Time.deltaTime * movementSpeed;
     }
 }

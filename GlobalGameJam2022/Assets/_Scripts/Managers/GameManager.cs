@@ -34,6 +34,7 @@ public class GameManager : MonoBehaviour
                 HandleMovementPhase();
                 break;
             case GameState.Victory:
+                HandleVictory();
                 break;
             case GameState.GameOver:
                 HandleGameOver();
@@ -56,6 +57,12 @@ public class GameManager : MonoBehaviour
     private void HandleMovementPhase()
     {
         Debug.Log("Entering PlayerMovement phase");
+    }
+
+    private void HandleVictory()
+    {
+        Debug.Log("Entering Victory phase");
+        Player.GetComponent<TestBabyController>().enabled = false;
     }
 
     private void HandleGameOver()
